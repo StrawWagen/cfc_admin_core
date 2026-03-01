@@ -9,7 +9,7 @@ end)
 
 function AdminCore.CreateEntity(class,pos,ang,ply)
 	local ent=ents.Create(class)
-	if not IsValid(ent) then self:throw("Invalid class!", "") return end
+	if not IsValid(ent) then return self:throw("Invalid class!", NULL) end
 	ent:SetPos(Vector(pos[1],pos[2],pos[3]))
 	ent:SetAngles(Angle(ang[1],ang[2],ang[3]))
 	ent:SetCreator(ply)
@@ -51,7 +51,7 @@ e2function void explosion(vector pos,number mag)
 	if not self.player:IsAdmin() and allowexplosion != true then return end
 
 	local explode=ents.Create("env_explosion")
-	if not IsValid(explode) then self:throw("Invalid class!", "") return end
+	if not IsValid(explode) then "" return end
 
 	explode:SetPos(Vector(pos[1],pos[2],pos[3]))
 	explode:SetOwner(self.player)
@@ -64,7 +64,7 @@ e2function void explosion(vector pos, number mag, entity attacker)
 	if not self.player:IsAdmin() and not allowexplosion then return end
 
 	local explode = ents.Create( "env_explosion" )
-	if not IsValid( explode ) then self:throw("Invalid class!", "") return end
+	if not IsValid( explode ) then return self:throw("Invalid class!", NULL) end
 
 	explode:SetPos( Vector( pos[1], pos[2], pos[3] ) )
 	explode:SetOwner( attacker )
@@ -123,7 +123,7 @@ end
 e2function entity entInitSpawn(string class)
 	if not self.player:IsAdmin() then return end
 	local ent=ents.Create(class)
-	if not IsValid(ent) then self:throw("Invalid class!", "") return end
+	if not IsValid(ent) then return self:throw("Invalid class!", NULL) end
 	ent:SetPos(self.entity:GetPos())
 	ent:SetAngles(self.entity:GetAngles())
 	ent:SetCreator(self.player)
@@ -136,7 +136,7 @@ end
 e2function entity entInitSpawn(string class,vector pos)
 	if not self.player:IsAdmin() then return end
 	local ent=ents.Create(class)
-	if not IsValid(ent) then self:throw("Invalid class!", "") return end
+	if not IsValid(ent) then return self:throw("Invalid class!", NULL) end
 	ent:SetPos(Vector(pos[1],pos[2],pos[3]))
 	ent:SetAngles(self.entity:GetAngles())
 	ent:SetCreator(self.player)
@@ -149,7 +149,7 @@ end
 e2function entity entInitSpawn(string class,angle ang)
 	if not self.player:IsAdmin() then return end
 	local ent=ents.Create(class)
-	if not IsValid(ent) then self:throw("Invalid class!", "") return end
+	if not IsValid(ent) then return self:throw("Invalid class!", NULL) end
 	ent:SetPos(self.entity:GetPos())
 	ent:SetAngles(Angle(ang[1],ang[2],ang[3]))
 	ent:SetCreator(self.player)
@@ -162,7 +162,7 @@ end
 e2function entity entInitSpawn(string class,entity ply)
 	if not self.player:IsAdmin() then return end
 	local ent=ents.Create(class)
-	if not IsValid(ent) then self:throw("Invalid class!", "") return end
+	if not IsValid(ent) then return self:throw("Invalid class!", NULL) end
 	ent:SetPos(self.entity:GetPos())
 	ent:SetAngles(self.entity:GetAngles())
 	ent:SetCreator(ply)
@@ -175,7 +175,7 @@ end
 e2function entity entInitSpawn(string class,vector pos,entity ply)
 	if not self.player:IsAdmin() then return end
 	local ent=ents.Create(class)
-	if not IsValid(ent) then self:throw("Invalid class!", "") return end
+	if not IsValid(ent) then return self:throw("Invalid class!", NULL) end
 	ent:SetPos(Vector(pos[1],pos[2],pos[3]))
 	ent:SetAngles(self.entity:GetAngles())
 	ent:SetCreator(ply)
@@ -188,7 +188,7 @@ end
 e2function entity entInitSpawn(string class,angle ang,entity ply)
 	if not self.player:IsAdmin() then return end
 	local ent=ents.Create(class)
-	if not IsValid(ent) then self:throw("Invalid class!", "") return end
+	if not IsValid(ent) then return self:throw("Invalid class!", NULL) end
 	ent:SetPos(self.entity:GetPos())
 	ent:SetAngles(Angle(ang[1],ang[2],ang[3]))
 	ent:SetCreator(ply)
@@ -201,7 +201,7 @@ end
 e2function entity entInitSpawn(string class,vector pos,angle ang)
 	if not self.player:IsAdmin() then return end
 	local ent=ents.Create(class)
-	if not IsValid(ent) then self:throw("Invalid class!", "") return end
+	if not IsValid(ent) then return self:throw("Invalid class!", NULL) end
 	ent:SetPos(Vector(pos[1],pos[2],pos[3]))
 	ent:SetAngles(Angle(ang[1],ang[2],ang[3]))
 	ent:SetCreator(self.player)
@@ -214,7 +214,7 @@ end
 e2function entity entInitSpawn(string class,vector pos,angle ang,entity ply)
 	if not self.player:IsAdmin() then return end
 	local ent=ents.Create(class)
-	if not IsValid(ent) then self:throw("Invalid class!", "") return end
+	if not IsValid(ent) then return self:throw("Invalid class!", NULL) end
 	ent:SetPos(Vector(pos[1],pos[2],pos[3]))
 	ent:SetAngles(Angle(ang[1],ang[2],ang[3]))
 	ent:SetCreator(ply)
