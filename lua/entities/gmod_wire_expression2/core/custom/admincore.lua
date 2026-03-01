@@ -51,7 +51,7 @@ e2function void explosion(vector pos,number mag)
 	if not self.player:IsAdmin() and allowexplosion != true then return end
 
 	local explode=ents.Create("env_explosion")
-	if not IsValid(explode) then "" return end
+	if not IsValid(explode) then return self:throw("Entity limit reached.", NULL) end
 
 	explode:SetPos(Vector(pos[1],pos[2],pos[3]))
 	explode:SetOwner(self.player)
@@ -64,7 +64,7 @@ e2function void explosion(vector pos, number mag, entity attacker)
 	if not self.player:IsAdmin() and not allowexplosion then return end
 
 	local explode = ents.Create( "env_explosion" )
-	if not IsValid( explode ) then return self:throw("Invalid class!", NULL) end
+	if not IsValid( explode ) then return self:throw("Entity limit reached.", NULL) end
 
 	explode:SetPos( Vector( pos[1], pos[2], pos[3] ) )
 	explode:SetOwner( attacker )
